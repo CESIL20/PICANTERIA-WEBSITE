@@ -1,12 +1,9 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La Picantería - Gastronomía Peruana Auténtica</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/6.6.6/css/flag-icons.min.css">
-
   <style>
     :root {
       --primary: #8B7355;
@@ -73,7 +70,7 @@
       align-items: center;
       gap: 1rem;
       font-size: 1.5rem;
-      font-weight: 700px;
+      font-weight: 700;
       color: var(--primary);
       text-decoration: none;
       transition: transform 0.3s ease;
@@ -124,25 +121,27 @@
       width: 100%;
     }
 
-    .language-toggle { 
-      display: flex; 
-      gap: 0.3rem; 
-      background: rgba(255, 255, 255, 0.05); 
-      padding: 0.5rem; 
-      border-radius: 50px; 
-    } 
-    .language-toggle button { 
-      background: transparent; 
-      border: none; 
-      color: var(--light); 
-      padding: 0; 
-      border-radius: 50px; 
-      cursor: pointer; 
-      transition: all 0.3s ease; 
-      font-weight: 600; 
-      display: flex; 
-      align-items: center; 
-      gap: 0.5rem; }
+    .language-toggle {
+      display: flex;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.3rem;
+      border-radius: 50px;
+    }
+
+    .language-toggle button {
+      background: transparent;
+      border: none;
+      color: var(--light);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
 
     .hamburger {
       display: none;
@@ -279,7 +278,7 @@
 
     .carousel-container {
       position: relative;
-      height: 380px;
+      height: 500px;
       overflow: hidden;
     }
 
@@ -437,7 +436,117 @@
       opacity: 0.1;
     }
 
-    /* Products Section */
+    /* Modal for preparation images */
+    .prep-modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .prep-modal.show {
+      display: flex;
+    }
+
+    .prep-modal-wrapper {
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .prep-modal-content {
+      max-width: 100%;
+      max-height: 60vh;
+      object-fit: contain;
+      border-radius: 10px;
+      animation: zoomIn 0.3s ease;
+      margin-bottom: 1rem;
+    }
+
+    .prep-modal-description {
+      color: white;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+
+    .prep-modal-close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 10001;
+    }
+
+    .prep-modal-close:hover {
+      color: var(--accent);
+    }
+
+    /* Modal for carousel images */
+    .carousel-modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-modal.show {
+      display: flex;
+    }
+
+    .carousel-modal-content {
+      max-width: 90%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 10px;
+      animation: zoomIn 0.3s ease;
+    }
+
+    .carousel-modal-close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .carousel-modal-close:hover {
+      color: var(--accent);
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
     .products-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -529,7 +638,7 @@
       background: var(--dark-secondary);
       border-radius: 20px;
       padding: 2rem;
-      border: 1px solid rgba(0, 217, 255, 0.1);
+      border: 1px solid rgba(139, 115, 85, 0.2);
     }
 
     .contact-item {
@@ -565,7 +674,8 @@
     .social-links {
       display: flex;
       gap: 1rem;
-      justify-content: center;
+      justify-content: flex-start;
+      align-items: center;
       margin-top: 2rem;
     }
 
@@ -577,10 +687,11 @@
       align-items: center;
       justify-content: center;
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(0, 217, 255, 0.2);
+      border: 1px solid rgba(139, 115, 85, 0.3);
       color: var(--primary);
       font-size: 1.3rem;
       transition: all 0.3s ease;
+      text-decoration: none;
     }
 
     .social-icon:hover {
@@ -764,12 +875,58 @@
       }
 
       .carousel-container {
-        width:100%;
-        height: 100%;
-        
-        
+        height: 400px;
       }
     }
+    /* 🔹 Modal de imágenes del carrusel */
+.carousel-modal {
+  display: none; /* oculto por defecto */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8); /* fondo oscuro translúcido */
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-modal.show {
+  display: flex; /* se muestra al hacer clic */
+}
+
+.carousel-modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  animation: zoomIn 0.3s ease;
+}
+
+/* Botón de cerrar */
+.carousel-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.carousel-modal-close:hover {
+  color: #ff5555;
+}
+
+/* Animación suave */
+@keyframes zoomIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
   </style>
 </head>
 <body class="lang-active-es">
@@ -778,7 +935,7 @@
   <header class="modern-header">
     <div class="header-content">
       <a href="#" class="logo">
-        <img src="pikalogo.png" alt="La Picantería" onerror="this.src='https://placehold.co/60x60/00D9FF/0A0E27?text=LP'">
+        <img src="img/pikalogo.png" alt="La Picantería" onerror="this.src='https://placehold.co/60x60/00D9FF/0A0E27?text=LP'">
         <span>La Picantería</span>
       </a>
 
@@ -790,17 +947,10 @@
           <li><a href="#products"><span class="lang-es inline-content">Productos</span><span class="lang-en inline-content">Products</span></a></li>
           <li><a href="#contact"><span class="lang-es inline-content">Contacto</span><span class="lang-en inline-content">Contact</span></a></li>
           <li>
-           <div class="language-toggle">
-  <span class="lang-label">🌐</span>
-  <button id="langEs" class="active">
-    <span class="fi fi-es"></span> ES
-  </button>
-  <button id="langEn">
-    <span class="fi fi-gb"></span> EN
-  </button>
-</div>
-
-
+            <div class="language-toggle">
+              <button id="langEs" class="active">🇪🇸 ES</button>
+              <button id="langEn">🇬🇧 EN</button>
+            </div>
           </li>
         </ul>
       </nav>
@@ -856,7 +1006,7 @@
     </h2>
     <div class="theme-grid">
       <div class="theme-image">
-        <img src="s100.jpg" alt="Pescados frescos" onerror="this.src='https://placehold.co/600x400/00D9FF/0A0E27?text=Fresh+Fish'">
+        <img src="img/s100.jpg" alt="Pescados frescos" onerror="this.src='https://placehold.co/600x400/00D9FF/0A0E27?text=Fresh+Fish'">
       </div>
       <div class="preparation-grid">
         <div class="prep-card" data-prep="ceviche">
@@ -898,7 +1048,16 @@
   <!-- Modal for Preparation Images -->
   <div id="prepModal" class="prep-modal">
     <span class="prep-modal-close" id="prepModalClose">&times;</span>
-    <img class="prep-modal-content" id="prepModalImage">
+    <div class="prep-modal-wrapper">
+      <img class="prep-modal-content" id="prepModalImage">
+      <div class="prep-modal-description" id="prepModalDescription"></div>
+    </div>
+  </div>
+
+  <!-- Modal for Carousel Images -->
+  <div id="carouselModal" class="carousel-modal">
+    <span class="carousel-modal-close" id="carouselModalClose">&times;</span>
+    <img class="carousel-modal-content" id="carouselModalImage">
   </div>
 
   <!-- History Section -->
@@ -977,7 +1136,7 @@
     </h2>
     <div class="products-container">
       <div class="product-card">
-        <img src="jaladito 1.jpg" alt="Jaladito Moche" class="product-image" onerror="this.src='https://placehold.co/300x250/00D9FF/0A0E27?text=Jaladito'">
+        <img src="img/300x200/jaladito 1.jpg" alt="Jaladito Moche" class="product-image" onerror="this.src='https://placehold.co/300x250/00D9FF/0A0E27?text=Jaladito'">
         <div class="product-info">
           <h3 class="product-name">JALADITO MOCHE</h3>
           <p class="product-price">S/. 99.00</p>
@@ -994,7 +1153,7 @@
       </div>
 
       <div class="product-card">
-        <img src="ceviche.jpg" alt="Ceviche" class="product-image" onerror="this.src='https://placehold.co/300x250/00D9FF/0A0E27?text=Ceviche'">
+        <img src="img/300x200/ceviche.jpg" alt="Ceviche" class="product-image" onerror="this.src='https://placehold.co/300x250/00D9FF/0A0E27?text=Ceviche'">
         <div class="product-info">
           <h3 class="product-name">CEVICHE DE PESCADO</h3>
           <p class="product-price">S/. 99.00</p>
@@ -1011,7 +1170,7 @@
       </div>
 
       <div class="product-card">
-        <img src="pulpoparrilla.jpg" alt="Pulpo" class="product-image" onerror="this.src='https://placehold.co/300x250/00D9FF/0A0E27?text=Pulpo'">
+        <img src="img/300x200/pulpoparrilla.jpg" alt="Pulpo" class="product-image" onerror="this.src='https://placehold.co/300x250/00D9FF/0A0E27?text=Pulpo'">
         <div class="product-info">
           <h3 class="product-name">PULPO A LA PARRILLA</h3>
           <p class="product-price">S/. 89.00</p>
@@ -1080,6 +1239,46 @@
   <a href="https://wa.me/51953489892?text=Hola!%20Me%20gustaría%20realizar%20un%20pedido." target="_blank" class="whatsapp-float">
     <i class="fab fa-whatsapp"></i>
   </a>
+
+  <!-- Cart Toggle Button -->
+  <div class="cart-toggle" id="cartToggle">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-badge" id="cartBadge">0</span>
+  </div>
+
+  <!-- Shopping Cart Sidebar -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>
+        <span class="lang-es inline-content">Mi Pedido</span>
+        <span class="lang-en inline-content">My Order</span>
+      </h3>
+      <span class="cart-close" id="cartClose">&times;</span>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">
+        <i class="fas fa-shopping-basket" style="font-size: 3rem; color: var(--text-muted); margin-bottom: 1rem;"></i>
+        <p>
+          <span class="lang-es inline-content">Tu carrito está vacío</span>
+          <span class="lang-en inline-content">Your cart is empty</span>
+        </p>
+      </div>
+    </div>
+    <div class="cart-total">
+      <div class="cart-total-text">
+        <span>
+          <span class="lang-es inline-content">Total:</span>
+          <span class="lang-en inline-content">Total:</span>
+        </span>
+        <span>S/. <span id="cartTotal">0.00</span></span>
+      </div>
+    </div>
+    <button class="cart-checkout" id="cartCheckout">
+      <i class="fab fa-whatsapp"></i>
+      <span class="lang-es inline-content">Enviar por WhatsApp</span>
+      <span class="lang-en inline-content">Send via WhatsApp</span>
+    </button>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -1198,24 +1397,16 @@
     const nextBtn = document.getElementById('nextBtn');
 
     const images = [
-      'LP 1 (1).jpg',
-      'LP 2.jpg',
-      '44pimentel1.jpg',
-      'LP 5.jpg',
-      'LP 9.jpg',
-      'LP 17.jpg',
-      'LP 10.jpg',
-      'LP 28.jpg',
-      'LP 29.jpg',
-      'LP 32.jpg',
-      'LP 42.jpg',
-      'NAVAJAS.jpg',
-      'conchas bloody.jpg',
-      'IMG_7403 (1).jpg',
-      'sancochado.jpg',
-      'chaufa.jpg',
-      'costillar.jpg',
-      'rocoto.jpg'
+      'img/LP 1 (1).jpg',
+      'img/LP 2.jpg',
+      'img/44pimentel1.jpg',
+      'img/LP 5.jpg',
+      'img/LP 17.jpg',
+      'img/LP 10.jpg',
+      'img/LP 28.jpg',
+      'img/LP 29.jpg',
+      'img/LP 32.jpg',
+      'img/LP 42.jpg'
     ];
 
     let currentSlide = 0;
@@ -1322,14 +1513,14 @@
     const prepModalClose = document.getElementById('prepModalClose');
 
     const prepImages = {
-      'ceviche': 'ceviche.jpg',
-      'jaladito': 'jaladito.jpg',
-      'parrilla': 'ala parrilla.jpg',
-      'ajo': 'ajo.jpg',
-      'jalea': 'jlimeña.jpg',
-      'vapor': 'al vapor.jpg',
-      'sudado': 'sudado.jpg',
-      'escabeche': 'escabeche.jpg'
+      'ceviche': 'img/ceviche.jpg',
+      'jaladito': 'img/jaladito.jpg',
+      'parrilla': 'img/ala parrilla.jpg',
+      'ajo': 'img/ajo.jpg',
+      'jalea': 'img/jlimeña.jpg',
+      'vapor': 'img/al vapor.jpg',
+      'sudado': 'img/sudado.jpg',
+      'escabeche': 'img/escabeche.jpg'
     };
 
     prepCards.forEach(card => {
@@ -1356,6 +1547,34 @@
         prepModal.classList.remove('show');
       }
     });
-  </script>
+        window.addEventListener('click', (e) => {
+      if (e.target === prepModal) {
+        prepModal.classList.remove('show');
+      }
+    });
+      // 🚀 Usamos el modal que ya existe en el HTML
+const carouselModal = document.getElementById('carouselModal');
+const carouselModalImg = document.getElementById('carouselModalImage');
+const carouselModalClose = document.getElementById('carouselModalClose');
+    // Abrir modal al hacer clic en una imagen del carrusel
+document.querySelectorAll('.carousel-item img').forEach(img => {
+  img.addEventListener('click', () => {
+    carouselModalImg.src = img.src;
+    carouselModal.classList.add('show');
+  });
+});
+
+// Cerrar modal con la X
+carouselModalClose.addEventListener('click', () => {
+  carouselModal.classList.remove('show');
+});
+
+// Cerrar modal al hacer clic fuera de la imagen
+window.addEventListener('click', (e) => {
+  if (e.target === carouselModal) {
+    carouselModal.classList.remove('show');
+  }
+});
+</script>
 </body>
 </html>
