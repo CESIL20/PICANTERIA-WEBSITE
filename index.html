@@ -928,6 +928,100 @@
   from { transform: scale(0.7); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
+    /* 📱 Ajustes para móviles */
+@media (max-width: 768px) {
+  /* Hero */
+  .hero-content {
+    grid-template-columns: 1fr; /* de dos columnas a una sola */
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem; /* más pequeño */
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+  }
+
+  /* Carrusel */
+  .carousel-container {
+    height: 220px; /* ya lo tienes, buen tamaño para móvil */
+  }
+
+  .carousel-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  /* Modal del carrusel */
+  .carousel-modal-content {
+    max-width: 95%;  /* casi todo el ancho disponible */
+    max-height: 70vh; /* menos alto para no tapar botones del móvil */
+  }
+
+  .carousel-modal-close {
+    font-size: 30px; /* botón de cerrar más pequeño */
+    top: 10px;
+    right: 15px;
+  }
+
+  /* Preparaciones */
+  .preparation-grid {
+    grid-template-columns: 1fr; /* en columna */
+  }
+
+  /* Contacto */
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer */
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  /* WhatsApp flotante más pequeño */
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 1.6rem;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+/* 📲 Ajustes para pantallas muy pequeñas (menos de 480px) */
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 1.7rem;
+  }
+
+  .btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .carousel-container {
+    height: 180px;
+  }
+
+  .carousel-modal-content {
+    max-width: 100%;
+    max-height: 65vh;
+  }
+}
+
 
   </style>
 </head>
