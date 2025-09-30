@@ -1021,6 +1021,50 @@
     max-height: 65vh;
   }
 }
+/* 📱 Footer responsivo */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr; /* una sola columna */
+    text-align: center;
+  }
+
+  .footer-section {
+    margin-bottom: 2rem; /* espacio entre secciones */
+  }
+
+  .footer-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .footer-section p,
+  .footer-section a {
+    font-size: 0.95rem;
+  }
+
+  .social-links {
+    justify-content: center; /* centrar redes sociales */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 2rem 1rem; /* menos padding */
+  }
+
+  .footer-section h3 {
+    font-size: 1rem;
+  }
+
+  .footer-section p,
+  .footer-section a {
+    font-size: 0.9rem;
+  }
+
+  .complaints-book {
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+  }
+}
 
 
   </style>
