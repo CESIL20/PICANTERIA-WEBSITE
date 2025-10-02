@@ -19,7 +19,7 @@
   <meta name="language" content="es">
   <meta name="copyright" content="La Picantería">
 
-  <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+  <!-- Open Graph -->
   <meta property="og:title" content="La Picantería - Gastronomía Peruana Auténtica">
   <meta property="og:description" content="Tradición y sabor peruano en cada plato. Ven y vive la experiencia gastronómica única.">
   <meta property="og:image" content="https://picanteriasdelperu.com/img/pikalogo.png">
@@ -38,14 +38,18 @@
   <!-- Font Awesome (íconos) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Preload de fuentes (mejora velocidad en móviles) -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-</head>
+  <!-- ✅ JoinChat CSS y JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/joinchat@4.5.17/build/joinchat.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/joinchat@4.5.17/build/joinchat.min.js"></script>
 
   <style>
+    #chrome_websiteIP { display: none !important; }
+
     :root {
       --primary: #8B7355;
       --secondary: #A0826D;
@@ -201,7 +205,7 @@
 
     /* Hero Section */
     .hero {
-      margin-top: 90px;
+      margin-top: 10px;
       min-height: 90vh;
       display: flex;
       align-items: center;
@@ -227,7 +231,7 @@
     }
 
     .hero-content {
-      max-width: 1330px;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 2rem;
       display: grid;
@@ -238,7 +242,7 @@
 
     .hero-text h1 {
       font-size: clamp(2.5rem, 5vw, 5rem);
-      font-weight: 900;
+      font-weight: 800;
       margin-bottom: 1.5rem;
       background: var(--gradient-elegant);
       -webkit-background-clip: text;
@@ -310,12 +314,9 @@
     }
 
     .hero-carousel {
-      width: 100%;
-      max-width: 1330px;
-      margin: 0 ;
-      overflow: hidden;
       position: relative;
       border-radius: 20px;
+      overflow: hidden;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
       animation: fadeInRight 0.8s ease-out 0.3s backwards;
     }
@@ -738,7 +739,13 @@
       transition: all 0.3s ease;
       text-decoration: none;
     }
-
+    .social-icon i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    }
     .social-icon:hover {
       background: var(--primary);
       color: white;
@@ -838,60 +845,66 @@
       
     }
 
-    /* WhatsApp Float */
-    .whatsapp-float {
+ /* --- Personalizar JoinChat con tu estilo --- */
+    .joinchat {
+      --btn-size: 60px;
+      --btn-bg: #25d366;
+      --btn-color: #fff;
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 60px;
-      height: 60px;
+      bottom: 20px;
+      z-index: 9999;
+      transition: all .3s ease;
+    }
+
+    .joinchat.joinchat--right {
+      right: 20px;
+    }
+
+    .joinchat.joinchat--left {
+      left: 20px;
+    }
+
+    .joinchat__button {
+      width: var(--btn-size);
+      height: var(--btn-size);
+      background: var(--btn-bg);
       border-radius: 50%;
-      background: #25D366;
-      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
-      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
       cursor: pointer;
-      z-index: 999;
-      transition: all 0.3s ease;
-      animation: pulse 2s infinite;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+      transition: all .3s ease;
+      animation: joinchat-pulse 2s infinite;
     }
 
-    .whatsapp-float:hover {
+    .joinchat__button:hover {
       transform: scale(1.1);
-      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
     }
 
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); }
-      50% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.8), 0 0 0 20px rgba(37, 211, 102, 0); }
+    .joinchat__button::before {
+      content: '';
+      width: 30px;
+      height: 30px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='white' d='M16 0C7.164 0 0 7.164 0 16c0 2.825.736 5.481 2.023 7.793L.696 30.584l7.063-1.852A15.923 15.923 0 0016 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm0 29.333c-2.547 0-4.932-.709-6.963-1.943l-.5-.297-5.139 1.348 1.372-5.016-.327-.518A13.262 13.262 0 012.667 16c0-7.364 5.969-13.333 13.333-13.333S29.333 8.636 29.333 16 23.364 29.333 16 29.333z'/%3E%3Cpath fill='white' d='M23.136 19.327c-.364-.182-2.155-1.064-2.489-1.182-.333-.118-.576-.182-.818.182-.242.364-.939 1.182-1.152 1.424-.212.242-.424.273-.788.091-.364-.182-1.536-.567-2.927-1.806-1.082-.964-1.812-2.155-2.024-2.519-.212-.364-.023-.561.159-.742.164-.164.364-.424.545-.636.182-.212.242-.364.364-.606.121-.242.061-.455-.03-.636-.091-.182-.818-1.97-1.121-2.697-.296-.709-.597-.612-.818-.624-.212-.012-.455-.015-.697-.015-.242 0-.636.091-.97.455-.333.364-1.273 1.242-1.273 3.03s1.303 3.515 1.485 3.758c.182.242 2.567 3.915 6.218 5.491.869.376 1.545.6 2.073.768.872.277 1.667.237 2.294.143.7-.105 2.155-.881 2.458-1.733.303-.851.303-1.581.212-1.733-.091-.152-.333-.242-.697-.424z'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
+    @keyframes joinchat-pulse {
+      0%, 100% {
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeInRight {
-      from {
-        opacity: 0;
-        transform: translateX(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
+      50% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.7);
       }
     }
 
+    .joinchat[hidden] {
+      display: none;
+    }
     /* Responsive */
     @media (max-width: 768px) {
       .hamburger {
@@ -925,7 +938,7 @@
 
       .carousel-container {
         width: 100%;
-        height: 400px;
+        height: 220px;
       }
     }
     /* 🔹 Modal de imágenes del carrusel */
@@ -948,8 +961,8 @@
 }
 
 .carousel-modal-content {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 90%;
+  max-height: 90%;
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   animation: zoomIn 0.3s ease;
@@ -998,12 +1011,12 @@
 
   /* Carrusel */
   .carousel-container {
-    height: 400px; /* ya lo tienes, buen tamaño para móvil */
+    height: 220px; /* ya lo tienes, buen tamaño para móvil */
   }
 
   .carousel-button {
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     font-size: 1.2rem;
   }
 
@@ -1061,29 +1074,88 @@
   }
 
   .carousel-container {
-    width:100%;
-    height: 250px;
+    height: 180px;
   }
 
   .carousel-modal-content {
     max-width: 100%;
     max-height: 65vh;
   }
-  history-section p {
-      font-size: 0.4em;
-      line-height: 1.6;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-      text-align: center;
-    }
+}
+/* --- ALERTA FLOTANTE DE RESERVA --- */
+#reservation-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  padding: 25px 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  z-index: 10000;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0.5s;
+  max-width: 90%;
+  box-sizing: border-box;
+}
 
-    .history-section p:first-of-type {
-      font-size: 0.8em;
-      color: var(--accent);
-      font-weight: 180;
-      text-align: center;
-      padding:10px;
-    }
+#reservation-message.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+.register-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 2000;
+}
+
+.register-box {
+  background: white;
+  color: black;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.register-box h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.register-box label {
+  display: block;
+  margin-top: 1rem;
+}
+
+.register-box input {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.register-box button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.8rem;
+  background: #25D366;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
   </style>
@@ -1094,26 +1166,30 @@
   <header class="modern-header">
     <div class="header-content">
       <a href="#" class="logo">
-        <img src="pikalogo.png" alt="La Picantería" onerror="this.src='https://placehold.co/60x60/00D9FF/0A0E27?text=LP'">
+        <img src="img/pikalogo.png" alt="La Picantería" onerror="this.src='https://placehold.co/60x60/00D9FF/0A0E27?text=LP'">
         <span>La Picantería</span>
       </a>
 
       <nav>
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="#hero"><span class="lang-es inline-content">Inicio</span><span class="lang-en inline-content">Home</span></a></li>
-          <li><a href="#theme"><span class="lang-es inline-content">Temática</span><span class="lang-en inline-content">Theme</span></a></li>
-          <li><a href="#history"><span class="lang-es inline-content">Historia</span><span class="lang-en inline-content">History</span></a></li>
-          <li><a href="#products"><span class="lang-es inline-content">Productos</span><span class="lang-en inline-content">Products</span></a></li>
-          <li><a href="#contact"><span class="lang-es inline-content">Contacto</span><span class="lang-en inline-content">Contact</span></a></li>
-          <li>
-            <div class="language-toggle">
-              <button id="langEs" class="active">🇪🇸 ES</button>
-              <button id="langEn">🇬🇧 EN</button>
-            </div>
-          </li>
-        </ul>
-      </nav>
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="#hero"><span class="lang-es inline-content">Inicio</span><span class="lang-en inline-content">Home</span></a></li>
+    <li><a href="#theme"><span class="lang-es inline-content">Temática</span><span class="lang-en inline-content">Theme</span></a></li>
+    <li><a href="#history"><span class="lang-es inline-content">Historia</span><span class="lang-en inline-content">History</span></a></li>
+    <li><a href="#products"><span class="lang-es inline-content">Productos</span><span class="lang-en inline-content">Products</span></a></li>
+    <li><a href="menu.html"><span class="lang-es inline-content">Carta</span><span class="lang-en inline-content">Menu</span></a></li>
+    <li><a href="#contact"><span class="lang-es inline-content">Contacto</span><span class="lang-en inline-content">Contact</span></a></li>
+  
 
+     <div class="language-toggle">
+    <button id="langEs" class="active">🇪🇸 ES</button>
+    <button id="langEn">🇬🇧 EN</button>
+  </div>
+  </ul>
+</nav>
+      <div id="reservation-message" class="flash-message info">
+    <span class="lang-es inline-content">No contamos con reserva, todo es por orden de llegada.</span>
+    <span class="lang-en inline-content">We do not take reservations; it's all first-come, first-served.</span>
+    </div>
       <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
@@ -1121,6 +1197,37 @@
       </div>
     </div>
   </header>
+  <!-- Modal de Registro -->
+<div class="register-modal" id="registerModal">
+  <div class="register-box">
+    <h2>
+      <span class="lang-es">Registro</span>
+      <span class="lang-en">Sign Up</span>
+    </h2>
+    <form id="registerForm">
+      <label>
+        <span class="lang-es">Nombre Completo</span>
+        <span class="lang-en">Full Name</span>
+      </label>
+      <input type="text" id="regName" required>
+      
+      <label>
+        <span class="lang-es">Teléfono (WhatsApp)</span>
+        <span class="lang-en">Phone (WhatsApp)</span>
+      </label>
+      <input type="tel" id="regPhone" required pattern="[0-9]{9,}">
+      
+      <label>Email</label>
+      <input type="email" id="regEmail" required>
+      
+      <button type="submit">
+        <span class="lang-es">Registrarme</span>
+        <span class="lang-en">Register</span>
+      </button>
+    </form>
+  </div>
+</div>
+
 
   <!-- Hero Section -->
   <section class="hero" id="hero">
@@ -1165,7 +1272,7 @@
     </h2>
     <div class="theme-grid">
       <div class="theme-image">
-        <img src="s100.jpg" alt="Pescados frescos" onerror="this.src='https://placehold.co/600x400/00D9FF/0A0E27?text=Fresh+Fish'">
+        <img src="img/s100.jpg" alt="Pescados frescos" onerror="this.src='https://placehold.co/600x400/00D9FF/0A0E27?text=Fresh+Fish'">
       </div>
       <div class="preparation-grid">
         <div class="prep-card" data-prep="ceviche">
@@ -1227,8 +1334,8 @@
     </h2>
     <div class="history-section">
       <p>
-        <span class="lang-es inline-content">La Picantería.</span>
-        <span class="lang-en inline-content">The Picantería.</span>
+        <span class="lang-es inline-content">La Picantería - El Perú servido en su mesa.</span>
+        <span class="lang-en inline-content">La Picantería - Peru served at your table.</span>
       </p>
       <p>
         <span class="lang-es inline-content">
@@ -1295,10 +1402,10 @@
     </h2>
     <div class="products-container">
       <div class="product-card">
-        <img src="jaladito 1.jpg" alt="Jaladito Moche" class="product-image" onerror="this.src='https://placehold.co/300x250/00D9FF/0A0E27?text=Jaladito'">
+        <img src="img/300x200/jaladito 1.jpg" alt="Jaladito Moche" class="product-image" onerror="this.src='https://placehold.co/300x250/00D9FF/0A0E27?text=Jaladito'">
         <div class="product-info">
           <h3 class="product-name">JALADITO MOCHE</h3>
-          <p class="product-price">S/. 99.00</p>
+          <p class="product-price">S/ 99.00</p>
           <div class="quantity-control">
             <button class="quantity-btn">−</button>
             <input type="number" value="1" min="1" class="quantity-input">
@@ -1315,7 +1422,7 @@
         <img src="ceviche.jpg" alt="Ceviche" class="product-image" onerror="this.src='https://placehold.co/300x250/00D9FF/0A0E27?text=Ceviche'">
         <div class="product-info">
           <h3 class="product-name">CEVICHE DE PESCADO</h3>
-          <p class="product-price">S/. 99.00</p>
+          <p class="product-price">S/ 99.00</p>
           <div class="quantity-control">
             <button class="quantity-btn">−</button>
             <input type="number" value="1" min="1" class="quantity-input">
@@ -1332,7 +1439,7 @@
         <img src="pulpoparrilla.jpg" alt="Pulpo" class="product-image" onerror="this.src='https://placehold.co/300x250/00D9FF/0A0E27?text=Pulpo'">
         <div class="product-info">
           <h3 class="product-name">PULPO A LA PARRILLA</h3>
-          <p class="product-price">S/. 89.00</p>
+          <span class="product-price">S/ 89.00<span>
           <div class="quantity-control">
             <button class="quantity-btn">−</button>
             <input type="number" value="1" min="1" class="quantity-input">
@@ -1394,10 +1501,22 @@
     </div>
   </section>
 
-  <!-- WhatsApp Float Button -->
-  <a href="https://wa.me/51953489892?text=Hola!%20Me%20gustaría%20realizar%20un%20pedido." target="_blank" class="whatsapp-float">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+<!-- WhatsApp JoinChat Button -->
+  <div class="joinchat joinchat--right" 
+       data-settings='{
+         "telephone":"51953489892",
+         "mobile_only":false,
+         "button_delay":1,
+         "whatsapp_web":true,
+         "qr":false,
+         "message_views":1,
+         "message_delay":5,
+         "message_badge":false,
+         "message_send":"Hola! Me gustaría realizar un pedido."
+       }' hidden aria-hidden="false">
+    <div class="joinchat__button" role="button" tabindex="0" aria-label="Abrir chat de WhatsApp"></div>
+  </div>
+
 
   <!-- Cart Toggle Button -->
   <div class="cart-toggle" id="cartToggle">
@@ -1501,250 +1620,1182 @@
       </p>
     </div>
   </footer>
-
+ <script src="script.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/joinchat@4.5.17/build/joinchat.min.js"></script>
   <script>
-    // Language Switcher
-    const langEs = document.getElementById('langEs');
-    const langEn = document.getElementById('langEn');
-    
-    function setLanguage(lang) {
-      document.body.classList.remove('lang-active-es', 'lang-active-en');
-      document.body.classList.add(`lang-active-${lang}`);
-      langEs.classList.toggle('active', lang === 'es');
-      langEn.classList.toggle('active', lang === 'en');
-      localStorage.setItem('language', lang);
-    }
-    
-    langEs.addEventListener('click', () => setLanguage('es'));
-    langEn.addEventListener('click', () => setLanguage('en'));
-    
-    // Load saved language
-    const savedLang = localStorage.getItem('language') || 'es';
-    setLanguage(savedLang);
-
-    // Hamburger Menu
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
-    
-    hamburger.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      hamburger.classList.toggle('open');
-    });
-
-    // Close menu when clicking a link
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('open');
-      });
-    });
-
-    // Header scroll effect
-    const header = document.querySelector('.modern-header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+    document.addEventListener('DOMContentLoaded', function() {
+      const joinchat = document.querySelector('.joinchat');
+      
+      if (joinchat) {
+        // Obtener configuración del data-settings
+        const settings = JSON.parse(joinchat.getAttribute('data-settings') || '{}');
+        
+        // Mostrar el botón después del delay configurado
+        setTimeout(() => {
+          joinchat.removeAttribute('hidden');
+          joinchat.setAttribute('aria-hidden', 'false');
+        }, (settings.button_delay || 1) * 1000);
+        
+        // Click handler para abrir WhatsApp
+        const button = joinchat.querySelector('.joinchat__button');
+        if (button) {
+          button.addEventListener('click', function() {
+            const phone = settings.telephone || '51927743956';
+            const message = encodeURIComponent(settings.message_send || 'Hola! Me gustaría realizar un pedido.');
+            
+            // Detectar si es móvil o desktop
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            let whatsappUrl;
+            if (isMobile || !settings.whatsapp_web) {
+              whatsappUrl = `https://wa.me/${phone}?text=${message}`;
+            } else {
+              whatsappUrl = `https://web.whatsapp.com/send?phone=${phone}&text=${message}`;
+            }
+            
+            window.open(whatsappUrl, '_blank');
+          });
+        }
       }
     });
+   // --- LÓGICA DE IDIOMA ---
+let currentLanguage = localStorage.getItem('language') || 'es';
+const langEsBtn = document.getElementById('langEs');
+const langEnBtn = document.getElementById('langEn');
+const reservationMessage = document.getElementById('reservation-message');
 
-    // Carousel functionality
-    const carouselTrack = document.getElementById('carouselTrack');
-    const dotsContainer = document.getElementById('carouselDots');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-
-    const images = [
-      'LP 1 (1).jpg',
-      'LP 2.jpg',
-      '44pimentel1.jpg',
-      'LP 5.jpg',
-      'LP 17.jpg',
-      'LP 10.jpg',
-      'LP 28.jpg',
-      'LP 29.jpg',
-      'LP 32.jpg',
-      'LP 42.jpg'
-    ];
-
-    let currentSlide = 0;
-    let autoSlideInterval;
-
-    // Create carousel items
-    images.forEach((img, index) => {
-      const item = document.createElement('div');
-      item.className = 'carousel-item';
-      item.innerHTML = `<img src="${img}" alt="Plato ${index + 1}" onerror="this.src='https://placehold.co/800x600/00D9FF/0A0E27?text=Dish+${index + 1}'">`;
-      carouselTrack.appendChild(item);
-
-      const dot = document.createElement('div');
-      dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
-      dot.addEventListener('click', () => goToSlide(index));
-      dotsContainer.appendChild(dot);
+function setLanguage(lang) {
+    currentLanguage = lang;
+    localStorage.setItem('language', lang);
+    document.body.classList.remove('lang-active-es', 'lang-active-en');
+    document.body.classList.add(`lang-active-${lang}`);
+    
+    document.querySelectorAll('.language-toggle button').forEach(button => {
+        button.classList.remove('active');
     });
+    
+    if (langEsBtn && langEnBtn) {
+        if (lang === 'es') {
+            langEsBtn.classList.add('active');
+        } else {
+            langEnBtn.classList.add('active');
+        }
+    }
 
-    function updateCarousel() {
-      const width = carouselTrack.offsetWidth;
-      carouselTrack.style.transform = `translateX(-${currentSlide * width}px)`;
-      
-      document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+    document.documentElement.lang = lang;
+
+    if (reservationMessage) {
+        clearTimeout(reservationMessage.hideTimeout);
+        reservationMessage.classList.add('show');
+        reservationMessage.hideTimeout = setTimeout(() => {
+            reservationMessage.classList.remove('show');
+        }, 5000);
+    }
+}
+
+// Llama a la función al inicio para que el idioma se configure al cargar la página
+setLanguage(currentLanguage);
+
+// Event Listeners para los botones
+if (langEsBtn) {
+    langEsBtn.addEventListener('click', () => setLanguage('es'));
+}
+if (langEnBtn) {
+    langEnBtn.addEventListener('click', () => setLanguage('en'));
+}
+
+// --- Resto de la funcionalidad del sitio web ---
+// Hamburger Menu
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    hamburger.classList.toggle('open');
+});
+
+// Close menu when clicking a link
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('open');
+    });
+});
+
+// Header scroll effect
+const header = document.querySelector('.modern-header');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Carousel functionality
+const carouselTrack = document.getElementById('carouselTrack');
+const dotsContainer = document.getElementById('carouselDots');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+const images = [
+    'LP 1 (1).jpg',
+    'LP 2.jpg',
+    '44pimentel1.jpg',
+    'LP 5.jpg',
+    'LP 17.jpg',
+    'LP 10.jpg',
+    'LP 28.jpg',
+    'LP 29.jpg',
+    'LP 32.jpg',
+    'LP 42.jpg'
+];
+
+let currentSlide = 0;
+let autoSlideInterval;
+
+// Create carousel items
+images.forEach((img, index) => {
+    const item = document.createElement('div');
+    item.className = 'carousel-item';
+    item.innerHTML = `<img src="${img}" alt="Plato ${index + 1}" onerror="this.src='https://placehold.co/800x600/00D9FF/0A0E27?text=Dish+${index + 1}'">`;
+    carouselTrack.appendChild(item);
+
+    const dot = document.createElement('div');
+    dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+    dot.addEventListener('click', () => goToSlide(index));
+    dotsContainer.appendChild(dot);
+});
+
+function updateCarousel() {
+    const width = carouselTrack.offsetWidth;
+    carouselTrack.style.transform = `translateX(-${currentSlide * width}px)`;
+    
+    document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
         dot.classList.toggle('active', index === currentSlide);
-      });
-    }
-
-    function goToSlide(index) {
-      currentSlide = index;
-      updateCarousel();
-      resetAutoSlide();
-    }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % images.length;
-      updateCarousel();
-    }
-
-    function prevSlide() {
-      currentSlide = (currentSlide - 1 + images.length) % images.length;
-      updateCarousel();
-    }
-
-    function startAutoSlide() {
-      autoSlideInterval = setInterval(nextSlide, 4000);
-    }
-
-    function resetAutoSlide() {
-      clearInterval(autoSlideInterval);
-      startAutoSlide();
-    }
-
-    prevBtn.addEventListener('click', () => {
-      prevSlide();
-      resetAutoSlide();
     });
+}
 
-    nextBtn.addEventListener('click', () => {
-      nextSlide();
-      resetAutoSlide();
-    });
+function goToSlide(index) {
+    currentSlide = index;
+    updateCarousel();
+    resetAutoSlide();
+}
 
-    // Pause on hover
-    const carouselContainer = document.querySelector('.carousel-container');
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % images.length;
+    updateCarousel();
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + images.length) % images.length;
+    updateCarousel();
+}
+
+function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 4000);
+}
+
+function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+}
+
+if (prevBtn) {
+  prevBtn.addEventListener('click', () => {
+    prevSlide();
+    resetAutoSlide();
+  });
+}
+
+if (nextBtn) {
+  nextBtn.addEventListener('click', () => {
+    nextSlide();
+    resetAutoSlide();
+  });
+}
+
+const carouselContainer = document.querySelector('.carousel-container');
+if (carouselContainer) {
     carouselContainer.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
     carouselContainer.addEventListener('mouseleave', startAutoSlide);
+}
 
-    // Responsive carousel
-    window.addEventListener('resize', updateCarousel);
+window.addEventListener('resize', updateCarousel);
 
-    // Start carousel
-    startAutoSlide();
-    updateCarousel();
+startAutoSlide();
+updateCarousel();
 
-    // Quantity controls
-    document.querySelectorAll('.quantity-control').forEach(control => {
-      const input = control.querySelector('.quantity-input');
-      const buttons = control.querySelectorAll('.quantity-btn');
-      
+// Quantity controls
+document.querySelectorAll('.quantity-control').forEach(control => {
+    const input = control.querySelector('.quantity-input');
+    const buttons = control.querySelectorAll('.quantity-btn');
+    
+    if (buttons[0]) {
       buttons[0].addEventListener('click', () => {
-        if (input.value > 1) input.value = parseInt(input.value) - 1;
+          if (input.value > 1) input.value = parseInt(input.value) - 1;
       });
-      
+    }
+    
+    if (buttons[1]) {
       buttons[1].addEventListener('click', () => {
-        input.value = parseInt(input.value) + 1;
+          input.value = parseInt(input.value) + 1;
       });
-    });
+    }
+});
 
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-      });
     });
+});
 
-    // Preparation cards modal functionality
-    const prepCards = document.querySelectorAll('.prep-card');
-    const prepModal = document.getElementById('prepModal');
-    const prepModalImage = document.getElementById('prepModalImage');
-    const prepModalClose = document.getElementById('prepModalClose');
+// Preparation cards modal functionality
+const prepCards = document.querySelectorAll('.prep-card');
+const prepModal = document.getElementById('prepModal');
+const prepModalImage = document.getElementById('prepModalImage');
+const prepModalClose = document.getElementById('prepModalClose');
 
-    const prepImages = {
-      'ceviche': 'ceviche.jpg',
-      'jaladito': 'jaladito.jpg',
-      'parrilla': 'ala parrilla.jpg',
-      'ajo': 'ajo.jpg',
-      'jalea': 'jlimeña.jpg',
-      'vapor': 'al vapor.jpg',
-      'sudado': 'sudado.jpg',
-      'escabeche': 'escabeche.jpg'
-    };
+const prepImages = {
+    'ceviche': 'ceviche.jpg',
+    'jaladito': 'jaladito.jpg',
+    'parrilla': 'ala parrilla.jpg',
+    'ajo': 'ajo.jpg',
+    'jalea': 'jlimeña.jpg',
+    'vapor': 'al vapor.jpg',
+    'sudado': 'sudado.jpg',
+    'escabeche': 'escabeche.jpg'
+};
 
-    prepCards.forEach(card => {
-      card.addEventListener('click', () => {
+prepCards.forEach(card => {
+    card.addEventListener('click', () => {
         const prepType = card.getAttribute('data-prep');
         const imageSrc = prepImages[prepType];
         
         if (imageSrc) {
-          prepModalImage.src = imageSrc;
-          prepModalImage.onerror = function() {
-            this.src = 'https://placehold.co/800x600/8B7355/FFFFFF?text=' + prepType;
-          };
-          prepModal.classList.add('show');
+            prepModalImage.src = imageSrc;
+            prepModalImage.onerror = function() {
+                this.src = 'https://placehold.co/800x600/8B7355/FFFFFF?text=' + prepType;
+            };
+            prepModal.classList.add('show');
         }
-      });
     });
+});
 
-    prepModalClose.addEventListener('click', () => {
+if (prepModalClose) {
+  prepModalClose.addEventListener('click', () => {
       prepModal.classList.remove('show');
-    });
+  });
+}
 
-    window.addEventListener('click', (e) => {
-      if (e.target === prepModal) {
+window.addEventListener('click', (e) => {
+    if (e.target === prepModal) {
         prepModal.classList.remove('show');
-      }
-    });
-        window.addEventListener('click', (e) => {
-      if (e.target === prepModal) {
+    }
+});
+window.addEventListener('click', (e) => {
+    if (e.target === prepModal) {
         prepModal.classList.remove('show');
-      }
-    });
-      // 🚀 Usamos el modal que ya existe en el HTML
+    }
+});
+// 🚀 Usamos el modal que ya existe en el HTML
 const carouselModal = document.getElementById('carouselModal');
 const carouselModalImg = document.getElementById('carouselModalImage');
 const carouselModalClose = document.getElementById('carouselModalClose');
-    // Abrir modal al hacer clic en una imagen del carrusel
+// Abrir modal al hacer clic en una imagen del carrusel
 document.querySelectorAll('.carousel-item img').forEach(img => {
-  img.addEventListener('click', () => {
-    carouselModalImg.src = img.src;
-    carouselModal.classList.add('show');
-  });
+    img.addEventListener('click', () => {
+        carouselModalImg.src = img.src;
+        carouselModal.classList.add('show');
+    });
 });
 
 // Cerrar modal con la X
-carouselModalClose.addEventListener('click', () => {
-  carouselModal.classList.remove('show');
-});
+if (carouselModalClose) {
+  carouselModalClose.addEventListener('click', () => {
+      carouselModal.classList.remove('show');
+  });
+}
 
 // Cerrar modal al hacer clic fuera de la imagen
 window.addEventListener('click', (e) => {
-  if (e.target === carouselModal) {
-    carouselModal.classList.remove('show');
+    if (e.target === carouselModal) {
+        carouselModal.classList.remove('show');
+    }
+});
+
+// ========================================
+// SISTEMA DE CARRITO MODERNO - LA PICANTERÍA
+// ========================================
+
+const WHATSAPP_NUMBER = "51953489892";
+let cart = [];
+
+// Elementos del DOM
+const cartToggle = document.getElementById("cartToggle");
+const cartSidebar = document.getElementById("cartSidebar");
+const cartClose = document.getElementById("cartClose");
+const cartItemsContainer = document.getElementById("cartItems");
+const cartBadge = document.getElementById("cartBadge");
+const cartTotalElement = document.getElementById("cartTotal");
+const cartCheckout = document.getElementById("cartCheckout");
+const registerModal = document.getElementById("registerModal");
+const registerForm = document.getElementById("registerForm");
+
+// Crear estilos modernos
+const modernStyles = document.createElement("style");
+modernStyles.textContent = `
+  /* Carrito Sidebar Moderno */
+  .cart-sidebar {
+    position: fixed;
+    right: -450px;
+    top: 0;
+    width: 450px;
+    max-width: 100vw;
+    height: 100vh;
+    background: linear-gradient(180deg, #1C1917 0%, #292524 100%);
+    box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+    z-index: 1001;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    border-left: 2px solid rgba(139, 115, 85, 0.3);
+  }
+  
+  .cart-sidebar.active {
+    right: 0;
+  }
+  
+  /* Header del Carrito */
+  .cart-header {
+    padding: 2rem;
+    background: rgba(139, 115, 85, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(139, 115, 85, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  
+  .cart-header::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8B7355, transparent);
+  }
+  
+  .cart-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #8B7355 0%, #C9A86A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .cart-header h3::before {
+    content: '🛒';
+    -webkit-text-fill-color: initial;
+  }
+  
+  .cart-close {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .cart-close:hover {
+    background: rgba(255, 85, 85, 0.2);
+    color: #ff5555;
+    transform: rotate(90deg);
+  }
+  
+  /* Items del Carrito */
+  .cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+  }
+  
+  .cart-items::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .cart-items::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  
+  .cart-items::-webkit-scrollbar-thumb {
+    background: rgba(139, 115, 85, 0.5);
+    border-radius: 10px;
+  }
+  
+  .cart-items::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 115, 85, 0.8);
+  }
+  
+  /* Item Individual Moderno */
+  .cart-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(139, 115, 85, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cart-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(139, 115, 85, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .cart-item:hover {
+    border-color: var(--primary);
+    transform: translateX(-5px);
+    box-shadow: 5px 5px 20px rgba(139, 115, 85, 0.2);
+  }
+  
+  .cart-item:hover::before {
+    left: 100%;
+  }
+  
+  .cart-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .cart-item-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--light);
+    margin-bottom: 0.3rem;
+  }
+  
+  .cart-item-qty {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    background: rgba(139, 115, 85, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    width: fit-content;
+  }
+  
+  .cart-item-qty i {
+    color: var(--accent);
+  }
+  
+  .cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .cart-item-price {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--accent);
+    text-shadow: 0 2px 10px rgba(201, 168, 106, 0.3);
+  }
+  
+  .cart-item-remove {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 85, 85, 0.1);
+    border: 1px solid rgba(255, 85, 85, 0.3);
+    color: #ff5555;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+  
+  .cart-item-remove:hover {
+    background: rgba(255, 85, 85, 0.2);
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 5px 15px rgba(255, 85, 85, 0.3);
+  }
+  
+  /* Carrito Vacío Moderno */
+  .cart-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    color: var(--text-muted);
+    padding: 2rem;
+  }
+  
+  .cart-empty i {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.3;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .cart-empty p {
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+  
+  /* Total del Carrito Moderno */
+  .cart-total {
+    padding: 2rem;
+    background: linear-gradient(180deg, rgba(139, 115, 85, 0.1) 0%, rgba(139, 115, 85, 0.05) 100%);
+    border-top: 2px solid rgba(139, 115, 85, 0.3);
+    backdrop-filter: blur(10px);
+  }
+  
+  .cart-total-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    border: 1px solid rgba(139, 115, 85, 0.2);
+  }
+  
+  .cart-total-text span:first-child {
+    color: var(--light);
+  }
+  
+  .cart-total-text span:last-child {
+    color: var(--accent);
+    text-shadow: 0 2px 15px rgba(201, 168, 106, 0.5);
+  }
+  
+  /* Botón de Checkout Moderno */
+  .cart-checkout {
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cart-checkout::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+  
+  .cart-checkout:hover::before {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .cart-checkout:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+  }
+  
+  .cart-checkout:active {
+    transform: translateY(0);
+  }
+  
+  .cart-checkout i {
+    font-size: 1.5rem;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+  
+  /* Botón Flotante Moderno */
+  .cart-toggle {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 65px;
+    height: 65px;
+    background: linear-gradient(135deg, #8B7355 0%, #A0826D 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(139, 115, 85, 0.5);
+    z-index: 999;
+    transition: all 0.3s ease;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .cart-toggle:hover {
+    transform: scale(1.15) translateY(-5px);
+    box-shadow: 0 8px 30px rgba(139, 115, 85, 0.7);
+    animation: none;
+  }
+  
+  .cart-toggle i {
+    color: white;
+    font-size: 1.8rem;
+  }
+  
+  .cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: linear-gradient(135deg, #ff5555 0%, #ff3333 100%);
+    color: white;
+    min-width: 28px;
+    height: 28px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 800;
+    border: 3px solid var(--dark);
+    box-shadow: 0 3px 10px rgba(255, 85, 85, 0.5);
+    animation: popIn 0.3s ease;
+  }
+  
+  @keyframes popIn {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  
+  /* Notificaciones Modernas */
+  .modern-notification {
+    position: fixed;
+    top: 100px;
+    right: -400px;
+    background: rgba(28, 25, 23, 0.95);
+    backdrop-filter: blur(20px);
+    color: white;
+    padding: 1.2rem 1.8rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    z-index: 10001;
+    max-width: 350px;
+    border: 1px solid rgba(139, 115, 85, 0.3);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .modern-notification.show {
+    right: 20px;
+  }
+  
+  .notification-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .notification-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  
+  .notification-icon.success {
+    background: rgba(37, 211, 102, 0.2);
+    color: #25d366;
+  }
+  
+  .notification-icon.error {
+    background: rgba(255, 85, 85, 0.2);
+    color: #ff5555;
+  }
+  
+  .notification-icon.info {
+    background: rgba(139, 115, 85, 0.2);
+    color: #C9A86A;
+  }
+  
+  .notification-text {
+    flex: 1;
+    font-weight: 600;
+  }
+  
+  /* Modal de Registro Moderno */
+  .register-modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .register-box {
+    background: linear-gradient(180deg, #292524 0%, #1C1917 100%);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 450px;
+    border: 2px solid rgba(139, 115, 85, 0.3);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    animation: slideUp 0.4s ease;
+  }
+  
+  @keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  .register-box h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #8B7355 0%, #C9A86A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .register-box label {
+    display: block;
+    margin-top: 1.2rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  
+  .register-box input {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 0.3rem;
+    border: 2px solid rgba(139, 115, 85, 0.3);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .register-box input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 20px rgba(139, 115, 85, 0.2);
+  }
+  
+  .register-box button {
+    margin-top: 2rem;
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+  }
+  
+  .register-box button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .cart-sidebar {
+      width: 100%;
+      right: -100%;
+    }
+    
+    .cart-toggle {
+      bottom: 80px;
+      right: 15px;
+      width: 55px;
+      height: 55px;
+    }
+    
+    .cart-badge {
+      min-width: 24px;
+      height: 24px;
+      font-size: 0.75rem;
+    }
+  }
+`;
+document.head.appendChild(modernStyles);
+
+// Función para parsear precios - Maneja enteros y decimales
+function parsePrice(text) {
+  if (!text) return 0;
+  
+  // Convertir a string y limpiar espacios
+  text = String(text).trim();
+  
+  // Extraer solo números, punto y coma
+  let clean = text.replace(/[^\d.,]/g, "");
+  
+  if (!clean) return 0;
+  
+  // Contar puntos y comas
+  const dotCount = (clean.match(/\./g) || []).length;
+  const commaCount = (clean.match(/,/g) || []).length;
+  
+  // Si no tiene punto ni coma, es un número entero (99 = 99.00)
+  if (dotCount === 0 && commaCount === 0) {
+    return parseFloat(clean);
+  }
+  
+  // Caso 1: Solo tiene punto (99.00 o 99.5)
+  if (dotCount > 0 && commaCount === 0) {
+    return parseFloat(clean);
+  }
+  
+  // Caso 2: Solo tiene coma (99,00 o 99,5)
+  if (commaCount > 0 && dotCount === 0) {
+    return parseFloat(clean.replace(',', '.'));
+  }
+  
+  // Caso 3: Tiene ambos (1,234.56 o 1.234,56)
+  if (dotCount > 0 && commaCount > 0) {
+    const lastDot = clean.lastIndexOf('.');
+    const lastComma = clean.lastIndexOf(',');
+    
+    if (lastDot > lastComma) {
+      // Formato: 1,234.56
+      return parseFloat(clean.replace(/,/g, ''));
+    } else {
+      // Formato: 1.234,56
+      return parseFloat(clean.replace(/\./g, '').replace(',', '.'));
+    }
+  }
+  
+  return parseFloat(clean);
+}
+
+// Renderizar carrito moderno
+function renderCart() {
+  cartItemsContainer.innerHTML = "";
+  
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = `
+      <div class="cart-empty">
+        <i class="fas fa-shopping-basket"></i>
+        <p>
+          <span class="lang-es inline-content">Tu carrito está vacío</span>
+          <span class="lang-en inline-content">Your cart is empty</span>
+        </p>
+      </div>`;
+    cartBadge.textContent = "0";
+    cartTotalElement.textContent = "0.00";
+    return;
+  }
+
+  let total = 0;
+  cart.forEach((item, idx) => {
+    const subtotal = item.price * item.qty;
+    total += subtotal;
+    
+    cartItemsContainer.innerHTML += `
+      <div class="cart-item">
+        <div class="cart-item-info">
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-qty">
+            <i class="fas fa-utensils"></i>
+            <span class="lang-es inline-content">Cantidad: ${item.qty}</span>
+            <span class="lang-en inline-content">Quantity: ${item.qty}</span>
+          </div>
+        </div>
+        <div class="cart-item-actions">
+          <div class="cart-item-price">S/. ${subtotal.toFixed(2)}</div>
+          <button onclick="removeFromCart(${idx})" class="cart-item-remove">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+      </div>`;
+  });
+
+  cartBadge.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
+  cartTotalElement.textContent = total.toFixed(2);
+}
+
+// Agregar al carrito
+function addToCart(name, price, qty) {
+  const user = JSON.parse(localStorage.getItem("lp_user"));
+  
+  if (!user) {
+    registerModal.style.display = "flex";
+    return;
+  }
+
+  const existing = cart.find(item => item.name === name);
+  if (existing) {
+    existing.qty += qty;
+  } else {
+    cart.push({ name, price, qty });
+  }
+  
+  renderCart();
+  showNotification("Producto agregado al carrito", "success");
+}
+
+// Eliminar del carrito
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  renderCart();
+  showNotification("Producto eliminado", "info");
+}
+
+// Toggle carrito
+if (cartToggle) {
+  cartToggle.addEventListener("click", () => {
+    cartSidebar.classList.add("active");
+  });
+}
+
+if (cartClose) {
+  cartClose.addEventListener("click", () => {
+    cartSidebar.classList.remove("active");
+  });
+}
+
+// Cerrar carrito al hacer clic fuera
+document.addEventListener("click", (e) => {
+  if (cartSidebar && cartSidebar.classList.contains("active")) {
+    if (!cartSidebar.contains(e.target) && !cartToggle.contains(e.target)) {
+      cartSidebar.classList.remove("active");
+    }
   }
 });
+
+// Sistema de registro
+if (registerForm) {
+  registerForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    
+    const name = document.getElementById("regName").value.trim();
+    const phone = document.getElementById("regPhone").value.trim();
+    const email = document.getElementById("regEmail").value.trim();
+
+    if (!name || !phone || !email) {
+      showNotification("Por favor completa todos los campos", "error");
+      return;
+    }
+
+    if (!/^[0-9]{9,}$/.test(phone)) {
+      showNotification("Número de teléfono inválido", "error");
+      return;
+    }
+
+    const userData = { name, phone, email };
+    localStorage.setItem("lp_user", JSON.stringify(userData));
+    registerModal.style.display = "none";
+    
+    showNotification("Registro exitoso", "success");
+  });
+}
+
+// Cerrar modal
+if (registerModal) {
+  registerModal.addEventListener("click", (e) => {
+    if (e.target === registerModal) {
+      registerModal.style.display = "none";
+    }
+  });
+}
+
+// Enviar por WhatsApp
+if (cartCheckout) {
+  cartCheckout.addEventListener("click", () => {
+    const user = JSON.parse(localStorage.getItem("lp_user"));
+    
+    if (!user || cart.length === 0) {
+      showNotification("No hay productos en el carrito", "error");
+      return;
+    }
+
+    let message = `*🍽️ NUEVO PEDIDO - La Picantería*\n\n`;
+    message += `*Cliente:* ${user.name}\n`;
+    message += `*Teléfono:* ${user.phone}\n`;
+    message += `*Email:* ${user.email}\n\n`;
+    message += `*📋 Detalle del pedido:*\n`;
+    message += `━━━━━━━━━━━━━━━━━━\n`;
+
+    let total = 0;
+    cart.forEach((item, idx) => {
+      const subtotal = item.price * item.qty;
+      total += subtotal;
+      message += `${idx + 1}. *${item.name}*\n`;
+      message += `   Cantidad: ${item.qty}\n`;
+      message += `   Subtotal: S/. ${subtotal.toFixed(2)}\n\n`;
+    });
+
+    message += `━━━━━━━━━━━━━━━━━━\n`;
+    message += `*💰 TOTAL: S/. ${total.toFixed(2)}*\n\n`;
+    message += `_Pedido desde picanteriasdelperu.com_`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, "_blank");
+
+    cart = [];
+    renderCart();
+    cartSidebar.classList.remove("active");
+    
+    showNotification("Pedido enviado por WhatsApp", "success");
+  });
+}
+
+// Configurar productos
+document.querySelectorAll(".product-card").forEach(productCard => {
+  const input = productCard.querySelector(".quantity-input");
+  const plusBtn = productCard.querySelector(".quantity-btn:last-of-type");
+  const minusBtn = productCard.querySelector(".quantity-btn:first-of-type");
+  const addBtn = productCard.querySelector(".btn-primary");
+
+  if (plusBtn) {
+    plusBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      input.value = parseInt(input.value) + 1;
+    });
+  }
+
+  if (minusBtn) {
+    minusBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (parseInt(input.value) > 1) {
+        input.value = parseInt(input.value) - 1;
+      }
+    });
+  }
+
+  if (addBtn) {
+    addBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const name = productCard.querySelector(".product-name").innerText;
+      const priceText = productCard.querySelector(".product-price").innerText;
+      const price = parsePrice(priceText);
+      const qty = parseInt(input.value) || 1;
+      
+      addToCart(name, price, qty);
+    });
+  }
+});
+
+// Sistema de notificaciones moderno
+function showNotification(message, type = "info") {
+  const notification = document.createElement("div");
+  notification.className = "modern-notification";
+  
+  const icons = {
+    success: "fa-check-circle",
+    error: "fa-exclamation-circle",
+    info: "fa-info-circle"
+  };
+  
+  notification.innerHTML = `
+    <div class="notification-content">
+      <div class="notification-icon ${type}">
+        <i class="fas ${icons[type]}"></i>
+      </div>
+      <div class="notification-text">${message}</div>
+    </div>
+  `;
+
+  document.body.appendChild(notification);
+  
+  setTimeout(() => notification.classList.add("show"), 100);
+
+  setTimeout(() => {
+    notification.classList.remove("show");
+    setTimeout(() => notification.remove(), 400);
+  }, 3000);
+}
+
+// Inicializar
+renderCart();
+window.removeFromCart = removeFromCart;
 </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
