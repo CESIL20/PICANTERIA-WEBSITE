@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Picanterìa - Menú</title>
+    <style>
+        #chrome_websiteIP { display: none !important; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.911), rgba(0, 0, 0, 0.87)),
+            url('img/madera_fondo.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: right;
+            margin-bottom: 0;
+        }
+
+
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .left-column, .right-column {
+            padding: 10px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            color:rgba(41, 88, 51, 0.904);
+
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            margin-top: 25px;
+        }
+
+        .pesca-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .pesca-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .fish-name {
+            font-weight: normal;
+        }
+
+        .fish-price {
+            font-weight: bold;
+        }
+
+        .note {
+            font-size: 0.9em;
+            line-height: 1.4;
+            margin: 15px 0;
+            font-style: italic;
+        }
+
+        .concept-title {
+            font-size: 2em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .prep-list {
+            column-count: 2;
+            column-gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .prep-item {
+            break-inside: avoid;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        .prep-name {
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .prep-desc {
+            line-height: 1;
+        }
+
+        .menu-item {
+            margin-bottom: 15px;
+            font-size: 0.8em;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .item-name {
+            font-weight: bold;
+        }
+
+        .item-price {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .item-desc {
+            line-height: 1;
+            margin-left: 10px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .quote {
+            text-align: center;
+            font-size: 1.5em;
+            font-style: italic;
+            margin: 40px 0;
+            padding: 30px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .bullet-item::before {
+            content: "• ";
+            margin-right: 5px;
+        }
+
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .prep-list {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+        </div>
+
+        <div class="content-wrapper">
+            <!-- COLUMNA IZQUIERDA -->
+            <div class="left-column">
+                <h1>LA PESCA<br>DEL DÍA</h1>
+                
+                <p class="note">
+                    Tener en cuenta que la disponibilidad y los precios están sujetos
+                    a cambios diarios según la pesca de día.
+                </p>
+
+                <div class="pesca-grid">
+                    <div class="pesca-item">
+                        <span class="fish-name">Robalo</span>
+                        <span class="fish-price">s/. 170</span>
+                    </div>
+                    <div class="pesca-item">
+                        <span class="fish-name">Cabrilla</span>
+                        <span class="fish-price">s/.175</span>
+                    </div>
+                    <div class="pesca-item">
+                        <span class="fish-name">Pluma</span>
+                        <span class="fish-price">s/.180</span>
+                    </div>
+                    <div class="pesca-item">
+                        <span class="fish-name">Corvina</span>
+                        <span class="fish-price">s/.185</span>
+                    </div>
+                    <div class="pesca-item">
+                        <span class="fish-name">Chita</span>
+                        <span class="fish-price">s/.185</span>
+                    </div>
+                    <div class="pesca-item">
+                        <span class="fish-name">Pejesapo</span>
+                        <span class="fish-price">s/.150</span>
+                    </div>
+                    <div class="pesca-item">
+                        <span class="fish-name">Lenguado</span>
+                        <span class="fish-price">s/.200</span>
+                    </div>
+                    <div class="pesca-item">
+                        <span class="fish-name">Rinchin</span>
+                        <span class="fish-price">s/.170</span>
+                    </div>
+                    <div class="pesca-item">
+                        <span class="fish-name">Cachema</span>
+                        <span class="fish-price">s/.150</span>
+                    </div>
+                    <div class="pesca-item">
+                        <span class="fish-name">Fortuno</span>
+                        <span class="fish-price">s/.160</span>
+                    </div>
+                    <div class="pesca-item">
+                        <span class="fish-name">Mero Rojo</span>
+                        <span class="fish-price">s/.190</span>
+                    </div>
+                    <div class="pesca-item">
+                        <span class="fish-name">Tramboyo</span>
+                        <span class="fish-price">s/.120</span>
+                    </div>
+                </div>
+
+                <h2 class="concept-title">NUESTRO CONCEPTO</h2>
+                <p class="note">De acuerdo con la elección de su pescado escoja sus preparaciones.</p>
+
+                <div class="prep-list">
+                    <div class="prep-item">
+                        <div class="prep-name">Ceviche de Picantería</div>
+                        <div class="prep-desc">Dados de pescado con leche de tigre y camote glaseado.</div>
+                    </div>
+                    <div class="prep-item">
+                        <div class="prep-name">Jaladito Moche</div>
+                        <div class="prep-desc">Láminas de pescado curadas en sal, leche de tigre a base de ají amarillo.</div>
+                    </div>
+                    <div class="prep-item">
+                        <div class="prep-name">Estofado</div>
+                        <div class="prep-desc">Guiso de laureles, arvejas y aceite de oliva.</div>
+                    </div>
+                    <div class="prep-item">
+                        <div class="prep-name">Escabeche</div>
+                        <div class="prep-desc">Salsa a base de vinagre, cebollas y aceitunas.</div>
+                    </div>
+                    <div class="prep-item">
+                        <div class="prep-name">Jalea Limeña</div>
+                        <div class="prep-desc">Trozos de pescado crocante.</div>
+                    </div>
+                    <div class="prep-item">
+                        <div class="prep-name">Jalea Chiclayana</div>
+                        <div class="prep-desc">Pescado adobado, dorado en vinagre y achiote.</div>
+                    </div>
+                    <div class="prep-item">
+                        <div class="prep-name">A la Parrilla</div>
+                        <div class="prep-desc">Salsa especial de la casa a base de ají amarillo.</div>
+                    </div>
+                    <div class="prep-item">
+                        <div class="prep-name">Dulce y Picosa</div>
+                        <div class="prep-desc">Tamarindo picante y vegetales orientales.</div>
+                    </div>
+                    <div class="prep-item">
+                        <div class="prep-name">Al Vapor</div>
+                        <div class="prep-desc">Concentrado de kion y salsa de soja.</div>
+                    </div>
+                    <div class="prep-item">
+                        <div class="prep-name">Salteado al Wok</div>
+                        <div class="prep-desc">Dados de pescado salteados al wok con salsa de soja.</div>
+                    </div>
+                    <div class="prep-item">
+                        <div class="prep-name">Arroz Frito</div>
+                        <div class="prep-desc">Arroz salteado, salsa de soja, ajonjolí y vegetales.</div>
+                    </div>
+                    <div class="prep-item">
+                        <div class="prep-name">Chilcano Humeante</div>
+                        <div class="prep-desc">Concentrado de pescado.</div>
+                    </div>
+                    <div class="prep-item">
+                        <div class="prep-name">Sudado Monsefú Hot</div>
+                        <div class="prep-desc">Caldo de pescado a base de ají amarillo, culantro, cebollas y tomates.</div>
+                    </div>
+                    <div class="prep-item">
+                        <div class="prep-name">Ajo y Mantequilla</div>
+                        <div class="prep-desc">Emulsión de mantequilla, nuestro vinagre, ajíes y ajos crocantes</div>
+                    </div>
+                </div>
+
+                <h2 class="section-title">También puedes ordenar a la CARTA</h2>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Ceviche</span>
+                        <span class="item-price">s/. 79</span>
+                    </div>
+                    <div class="item-desc">• Dados de pescado con leche de tigre y camote glaseado.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Jaladito</span>
+                        <span class="item-price">s/.79</span>
+                    </div>
+                    <div class="item-desc">• Técnica Moche especial, pescado curado en sal.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Tortillas Picanteras</span>
+                        <span class="item-price">s/. 35</span>
+                    </div>
+                    <div class="item-desc">
+                        • Tortilla Andina: Papas, cebollas glaseadas.<br>
+                        • Tortillas Especiales: Todo se puede atortillar.
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Arroz con Mariscos</span>
+                        <span class="item-price">s/.85</span>
+                    </div>
+                    <div class="item-desc">• Arroz graneado con fondo de cangrejo y mariscos del día.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Ensalada de Papas Peruanas</span>
+                        <span class="item-price">s/.59</span>
+                    </div>
+                    <div class="item-desc">
+                        • Papas peruanas convertidas en ensalada (pimientos, cebollas, pepinillos soasados encurtidos) aderezados con una mayonesa de aceite de oliva.<br>
+                        Sugerencia para acompañarla: ventresca de atún o mariscos del día a su elección.
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Cangrejo Popeye</span>
+                        <span class="item-price">s/.39 por unidad</span>
+                    </div>
+                    <div class="item-desc">• Ceviche, Sudado o Chilcano.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Langosta Puerto Eten</span>
+                        <span class="item-price">s/.290 por kilo</span>
+                    </div>
+                    <div class="item-desc">• Ceviche al estilo Ferreñafe, parrilla, al ajo y mantequilla o ceviche.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Pulpo</span>
+                        <span class="item-price">s/.79</span>
+                    </div>
+                    <div class="item-desc">
+                        • 200gr en la preparación que elijas:<br>
+                        -Parrilla.<br>
+                        -Ensalada de papas peruanas.
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Almejas</span>
+                        <span class="item-price">s/.15 por unidad</span>
+                    </div>
+                    <div class="item-desc">• Ceviche, chalaca o tortilla.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Navajas</span>
+                        <span class="item-price">s/.10 por unidad</span>
+                    </div>
+                    <div class="item-desc">• Parrilla, ceviche o tortilla.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Erizos</span>
+                        <span class="item-price">s/.75</span>
+                    </div>
+                    <div class="item-desc">• Tortilla, ceviche o al natural.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Conchas de Abanico</span>
+                        <span class="item-price">s/.15 por unidad</span>
+                    </div>
+                    <div class="item-desc">• A la parrilla, ceviche o tortilla.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Ostra</span>
+                        <span class="item-price">s/.20 por unidad</span>
+                    </div>
+                    <div class="item-desc">• Natural, Ceviche o chalaca.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Langostinos Jumbo</span>
+                        <span class="item-price">s/.22 (100gr) / s/.30 (150gr)</span>
+                    </div>
+                    <div class="item-desc">
+                        • Por unidad de 100gr y 150 gr.<br>
+                        -Parrilla.<br>
+                        -Ensalada de papas peruanas.<br>
+                        -Ajo y mantequilla.
+                    </div>
+                
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Rocoto hecho Chupe</span>
+                        <span class="item-price">s/. 69</span>
+                    </div>
+                    <div class="item-desc">• Rocoto relleno de lomo fino sumergido en chupe de carne de res, queso paria y huevo escalfado.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Parihuela</span>
+                        <span class="item-price">s/. 79</span>
+                    </div>
+                    <div class="item-desc">• Concentrado de cangrejos moros -popeyes, mariscos y vongoles.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Costillar de Res</span>
+                        <span class="item-price">s/. 160</span>
+                    </div>
+                    <div class="item-desc">• 1.5 kilogramos de res de primera calidad en cocción lenta. Asado, dorado, braseado y escabechado.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Lomo Saltado</span>
+                        <span class="item-price">s/. 79</span>
+                    </div>
+                    <div class="item-desc">• Lomo fino salteado con cebollas, tomate. Acompañados con papas crocantes y arroz o paste hecha en casa.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Pato x1/4 de Pieza</span>
+                        <span class="item-price">s/. 85</span>
+                    </div>
+                    <div class="item-desc">
+                        • Asado lentamente en distintas preparaciones:<br>
+                        -Ceviche: Al estilo Huaral.<br>
+                        -Asado: En sus propios jugos.<br>
+                        -Estofado: Arvejas, orégano, laureles y papas<br>
+                        -Chaufa: Pato asado en láminas.
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Cau-Cau 4H</span>
+                        <span class="item-price">s/. 55</span>
+                    </div>
+                    <div class="item-desc">• Mondongo de res en cocción lenta, con papa blanca, zanahoria, alverjas, ajíes amarillos y hierba buena.</div>
+                </div>
+                  </div>
+            </div>
+
+            <!-- COLUMNA DERECHA -->
+            <div class="right-column">
+                <h2 class="section-title">Nuestros Sánguches</h2>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Sanguche de la Playa</span>
+                        <span class="item-price">s/.45</span>
+                    </div>
+                    <div class="item-desc">• Pescado, cebollines, oro verde y mayonesa de oliva en pan baguette de la casa.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Rolling Stone</span>
+                        <span class="item-price">s/.45</span>
+                    </div>
+                    <div class="item-desc">• Lengua de ternera a la parrilla, cebollines, mayonesa de olivo en pan baguette.</div>
+                </div>
+              
+             <h2 class="section-title">Postres de la Picantería:</h2>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Cacao y Lágrimas de Toffee</span>
+                        <span class="item-price">s/.39</span>
+                    </div>
+                    <div class="item-desc">• Pastel tibio con centro cremoso coronado con una bola de helado de vainilla de la casa, acompañado de pecanas troceadas y lágrimas de toffee líquido y salado.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Misti</span>
+                        <span class="item-price">s/.35</span>
+                    </div>
+                    <div class="item-desc">• Fusión de dos postres arequipeños, alfajor y queso helado, acompañado con miel de cerveza "LA PELIRROJA" y algodón de azúcar.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Paletas de Helado</span>
+                        <span class="item-price">s/. 15</span>
+                    </div>
+                    <div class="item-desc">• Según estación.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Crema Asada</span>
+                        <span class="item-price">s/. 25</span>
+                    </div>
+                    <div class="item-desc">• Combinación de leche asada con crema volteada, vaina de vainilla, miel de ciruela y obleas de cacao.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Flor de Mamey</span>
+                        <span class="item-price">s/.15</span>
+                    </div>
+                    <div class="item-desc">• Helado cremoso de Mamey sobre un cono crocante y bañado con miel de cerveza "LA PELIRROJA".</div>
+                </div>
+
+                <div class="quote">
+                    "Para vivir el presente<br>hay que<br>beberse el pasado"
+                </div>
+
+                <h2 class="section-title">Bebidas</h2>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Chilcano Clásico</span>
+                        <span class="item-price">S/.35</span>
+                    </div>
+                    <div class="item-desc">500ml – Pisco de la casa "CHOLO NAMBER GUAN", zumo de limón, bitter y ginger ale.</div>
+                </div>
+            
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Chilcano Macerado</span>
+                        <span class="item-price">S/.40</span>
+                    </div>
+                    <div class="item-desc">500ml – Macerado de la casa "CHOLO NAMBER GUAN", macerado en frutas, cortezas y/o hojas. Zumo de limón, bitter y ginger ale.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Pisco Sour Clásico</span>
+                        <span class="item-price">S/.40</span>
+                    </div>
+                    <div class="item-desc">500ml – Pisco de la casa "CHOLO NUMBER GUAN", zumo de limón, claras de huevo y bitter.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Pisco Sour Macerado</span>
+                        <span class="item-price">S/.45</span>
+                    </div>
+                    <div class="item-desc">500ml – Pisco de la casa "CHOLO NAMBER GUAN". Macerado en frutas, cortezas y/o hojas; zuma de limón, claras de huevo y bitter.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Chica de Jora</span>
+                        <span class="item-price">S/.10</span>
+                    </div>
+                    <div class="item-desc">Preparación de la casa al estilo de Chiclayo natural, maíz morado, manzana, membrillo y cáscaras.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                    <span class="item-name">La Pelirroja Cerveza de Alta Gama</span>
+                    <span class="item-price">s/.35</span>
+                    </div>
+                    <div class="item-desc">375ml – 40 ibu red lager estilo belga, cebadas malteadas y lúpulos americanos.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                    <span class="item-name">Oro Líquido Cerveza de Alta Gama</span>
+                    <span class="item-price">s/.20</span>
+                    </div>
+                    <div class="item-desc">330ml – 18 ibu rubia ligera estilo lager, con cebadas malteadas y lúpulos americanos.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                    <span class="item-name">Cholo Antoni</span>
+                    <span class="item-price">s/.35</span>
+                    </div>
+                    <div class="item-desc">Esfera de lima, pisco y agua tónica.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                    <span class="item-name">Calientito Picantero</span>
+                    <span class="item-price">s/.30</span>
+                </div>
+                    <div class="item-desc">Infusión de té, canela y hierba luisa, zumo de maracuyá y macerado y naranja.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                    <span class="item-name">Sol y Sombra</span>
+                    <span class="item-price">s/.40</span>
+                    </div>
+                    <div class="item-desc">Licor de guinda, jugo de naranja y ginger ale de la casa.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                    <span class="item-name">Bloody Picantero</span>
+                    <span class="item-price">s/.40</span>
+                    </div>
+                    <div class="item-desc">El bloody de toda la vida con nuestro toque, jugo de ceviche, pisco y pimienta negra.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                    <span class="item-name">Mezcla del mejor cholo</span>
+                    <span class="item-price">s/.40</span>
+                    </div>
+                    <div class="item-desc">Pisco de la casa, hojas de muña, dash de limón, zumo de kion y ginger ale.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                    <span class="item-name">Sangría Andina</span>
+                    <span class="item-price">s/.40<span>
+                    </div>
+                    <div class="item-desc">Vino tinto de alta gama, macerado de naranja, jarabe de canela y juana jora de maíz morado.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                    <span class="item-name">Julieta</span>
+                    <span class="item-price">s/.38</span>
+                    </div>
+                    <div class="item-desc">Gin de arándanos, jarabe de flor de jamaica, zumo de maracuyá, frutos rojos y agua con gas.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                    <span class="item-name">Frozen de Cholo Number Guan</span>
+                    <span class="item-price">s/.35</span>
+                    </div>
+                    <div class="item-desc">Pisco, limón y crema de coco artesanal.</div>
+                </div>
+                
+
+                <h2 class="section-title">Sin Alcohol:</h2>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                    <span class="item-name">Brebaje Picantero</span> 
+                    <span class="item-price">s/.20</span>
+                    </div>
+                    <div class="item-desc">Infusión de té negro, muña y eucalipto, almíbar de anís estrella,
+                     maracuyá y un dash de limón.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-name">Jugos Naturales</div>
+                    <div class="item-desc">Frutos naturales de temporada.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">Blanco Tropical</span>
+                        <span class="item-price">s/.20</span>
+                    </div>
+                    <div class="item-desc">Crema de coco artesanal, naranja y limón.</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                    <span class="item-name">Lima Limón</span>
+                    <span class="item-price">s/.18<span>
+                    </div>
+                    <div class="item-desc">Limón, lima y agua gasificada.</div>
+                </div
