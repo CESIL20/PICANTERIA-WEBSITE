@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
   <title>La Picantería - Gastronomía Peruana Auténtica</title>
 
-  <!-- Configuración del navegador -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta http-equiv="cache-control" content="max-age=300">
   <meta http-equiv="expires" content="0">
 
-  <!-- SEO Básico -->
   <link rel="canonical" href="https://picanteriasdelperu.com">
   <meta name="description" content="Descubre La Picantería: gastronomía peruana auténtica con pescados frescos, tradición y sabor en cada plato.">
   <meta name="keywords" content="picantería, comida peruana, ceviche, gastronomía peruana, restaurante en Lima">
@@ -19,31 +17,25 @@
   <meta name="language" content="es">
   <meta name="copyright" content="La Picantería">
 
-  <!-- Open Graph -->
   <meta property="og:title" content="La Picantería - Gastronomía Peruana Auténtica">
   <meta property="og:description" content="Tradición y sabor peruano en cada plato. Ven y vive la experiencia gastronómica única.">
   <meta property="og:image" content="https://picanteriasdelperu.com/img/pikalogo.png">
   <meta property="og:url" content="https://picanteriasdelperu.com">
   <meta property="og:type" content="website">
 
-  <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="La Picantería - Gastronomía Peruana Auténtica">
   <meta name="twitter:description" content="Descubre lo mejor de la gastronomía peruana en La Picantería.">
   <meta name="twitter:image" content="https://picanteriasdelperu.com/img/pikalogo.png">
 
-  <!-- Ícono del sitio -->
   <link rel="icon" href="img/pikalogo.png" type="image/png">
 
-  <!-- Font Awesome (íconos) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <!-- ✅ JoinChat CSS y JS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/joinchat@4.5.17/build/joinchat.min.css">
   <script src="https://cdn.jsdelivr.net/npm/joinchat@4.5.17/build/joinchat.min.js"></script>
 
@@ -992,66 +984,64 @@
 /* 📱 Ajustes para móviles */
 @media (max-width: 768px) {
   /* Hero */
+  .hero {
+    margin-top: 70px; /* Asegura que haya suficiente espacio debajo del header */
+  }
   .hero-content {
     grid-template-columns: 1fr; /* de dos columnas a una sola */
     text-align: center;
   }
-
   .hero-text h1 {
     font-size: 2rem; /* más pequeño */
   }
-
   .hero-text p {
     font-size: 1rem;
   }
-
   .cta-buttons {
     justify-content: center;
   }
-
   /* Carrusel */
   .carousel-container {
     height: 220px; /* ya lo tienes, buen tamaño para móvil */
   }
-
   .carousel-button {
     width: 40px;
     height: 40px;
     font-size: 1.2rem;
   }
-
   /* Modal del carrusel */
   .carousel-modal-content {
-    max-width: 95%;  /* casi todo el ancho disponible */
+    max-width: 95%; /* casi todo el ancho disponible */
     max-height: 70vh; /* menos alto para no tapar botones del móvil */
   }
-
   .carousel-modal-close {
     font-size: 30px; /* botón de cerrar más pequeño */
     top: 10px;
     right: 15px;
   }
-
   /* Preparaciones */
   .preparation-grid {
     grid-template-columns: 1fr; /* en columna */
   }
-
   /* Contacto */
   .contact-grid {
     grid-template-columns: 1fr;
   }
-
+  .contact-card {
+      text-align: center; /* Centra el texto de dirección/teléfono */
+      padding: 1.5rem; /* Opcional: ajusta el padding para móviles */
+  }
+  social-links {
+    justify-content: center; /* Centra los íconos en el medio de la tarjeta */
+  }
   /* Footer */
   .footer-content {
     grid-template-columns: 1fr;
     text-align: center;
   }
-
   .social-links {
     justify-content: center;
   }
-
   /* WhatsApp flotante más pequeño */
   .whatsapp-float {
     width: 50px;
@@ -1060,63 +1050,65 @@
     bottom: 20px;
     right: 20px;
   }
-}
-
+} 
 /* 📲 Ajustes para pantallas muy pequeñas (menos de 480px) */
 @media (max-width: 480px) {
   .hero-text h1 {
     font-size: 1.7rem;
   }
-
   .btn {
     padding: 0.8rem 1.5rem;
     font-size: 0.9rem;
   }
-
   .carousel-container {
     height: 180px;
   }
-
   .carousel-modal-content {
     max-width: 100%;
     max-height: 65vh;
   }
 }
-/* --- ALERTA FLOTANTE DE RESERVA --- */
-#reservation-message {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.9);
-  background-color: rgba(0,0,0,0.5);
-  color: white;
-  padding: 25px 40px;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-  z-index: 10000;
-  font-size: 1.1em;
-  font-weight: bold;
-  text-align: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0.5s;
-  max-width: 90%;
-  box-sizing: border-box;
-}
 
+#reservation-message {
+      position: fixed;
+      top:300px;
+      left: 50%;
+      /* CORRECCIÓN 1: Centrado sin escalado inicial */
+      transform: translate(-50%, -50%);
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      padding: 25px 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      z-index: 10000;
+      font-size: 1.1em;
+      font-weight: bold;
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0.5s;
+      max-width: 90%;
+      box-sizing: border-box;
+    }
 #reservation-message.show {
   opacity: 1;
   visibility: visible;
+  /* CORRECCIÓN 2: Animación de entrada al mostrar */
   transform: translate(-50%, -50%) scale(1);
 }
+
+/* CORRECCIÓN 3: Modal de Registro (Oculto por defecto y se muestra con la clase .show) */
 .register-modal {
-  display: flex;
+  display: none; /* Oculto por defecto */
   justify-content: center;
   align-items: center;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.7);
   z-index: 2000;
+}
+.register-modal.show {
+    display: flex; /* Se muestra al agregar la clase 'show' */
 }
 
 .register-box {
@@ -1127,17 +1119,14 @@
   width: 90%;
   max-width: 400px;
 }
-
 .register-box h2 {
   margin-bottom: 1rem;
   text-align: center;
 }
-
 .register-box label {
   display: block;
   margin-top: 1rem;
 }
-
 .register-box input {
   width: 100%;
   padding: 0.7rem;
@@ -1145,7 +1134,6 @@
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
 .register-box button {
   margin-top: 1.5rem;
   width: 100%;
@@ -1156,40 +1144,34 @@
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
-}
-
-  </style>
+} 
+</style>
 </head>
 <body class="lang-active-es">
-
-  <!-- Header -->
   <header class="modern-header">
     <div class="header-content">
       <a href="#" class="logo">
         <img src="pikalogo.png" alt="La Picantería" onerror="this.src='https://placehold.co/60x60/00D9FF/0A0E27?text=LP'">
         <span>La Picantería</span>
       </a>
-
       <nav>
-  <ul class="nav-menu" id="navMenu">
-    <li><a href="#hero"><span class="lang-es inline-content">Inicio</span><span class="lang-en inline-content">Home</span></a></li>
-    <li><a href="#theme"><span class="lang-es inline-content">Temática</span><span class="lang-en inline-content">Theme</span></a></li>
-    <li><a href="#history"><span class="lang-es inline-content">Historia</span><span class="lang-en inline-content">History</span></a></li>
-    <li><a href="#products"><span class="lang-es inline-content">Productos</span><span class="lang-en inline-content">Products</span></a></li>
-    <li><a href="menu.html"><span class="lang-es inline-content">Carta</span><span class="lang-en inline-content">Menu</span></a></li>
-    <li><a href="#contact"><span class="lang-es inline-content">Contacto</span><span class="lang-en inline-content">Contact</span></a></li>
-  
-
-     <div class="language-toggle">
-    <button id="langEs" class="active">🇪🇸 ES</button>
-    <button id="langEn">🇬🇧 EN</button>
-  </div>
-  </ul>
-</nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#hero"><span class="lang-es inline-content">Inicio</span><span class="lang-en inline-content">Home</span></a></li>
+          <li><a href="#theme"><span class="lang-es inline-content">Temática</span><span class="lang-en inline-content">Theme</span></a></li>
+          <li><a href="#history"><span class="lang-es inline-content">Historia</span><span class="lang-en inline-content">History</span></a></li>
+          <li><a href="#products"><span class="lang-es inline-content">Productos</span><span class="lang-en inline-content">Products</span></a></li>
+          <li><a href="menu.html"><span class="lang-es inline-content">Carta</span><span class="lang-en inline-content">Menu</span></a></li>
+          <li><a href="#contact"><span class="lang-es inline-content">Contacto</span><span class="lang-en inline-content">Contact</span></a></li>
+          <div class="language-toggle">
+            <button id="langEs" class="active">🇪🇸 ES</button>
+            <button id="langEn">🇬🇧 EN</button>
+          </div>
+        </ul>
+      </nav>
       <div id="reservation-message" class="flash-message info">
-    <span class="lang-es inline-content">No contamos con reserva, todo es por orden de llegada.</span>
-    <span class="lang-en inline-content">We do not take reservations; it's all first-come, first-served.</span>
-    </div>
+        <span class="lang-es inline-content">No contamos con reserva, todo es por orden de llegada.</span>
+        <span class="lang-en inline-content">We do not take reservations; it's all first-come, first-served.</span>
+      </div>
       <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
@@ -1197,39 +1179,34 @@
       </div>
     </div>
   </header>
-  <!-- Modal de Registro -->
-<div class="register-modal" id="registerModal">
-  <div class="register-box">
-    <h2>
-      <span class="lang-es">Registro</span>
-      <span class="lang-en">Sign Up</span>
-    </h2>
-    <form id="registerForm">
-      <label>
-        <span class="lang-es">Nombre Completo</span>
-        <span class="lang-en">Full Name</span>
-      </label>
-      <input type="text" id="regName" required>
-      
-      <label>
-        <span class="lang-es">Teléfono (WhatsApp)</span>
-        <span class="lang-en">Phone (WhatsApp)</span>
-      </label>
-      <input type="tel" id="regPhone" required pattern="[0-9]{9,}">
-      
-      <label>Email</label>
-      <input type="email" id="regEmail" required>
-      
-      <button type="submit">
-        <span class="lang-es">Registrarme</span>
-        <span class="lang-en">Register</span>
-      </button>
-    </form>
+
+  <div class="register-modal" id="registerModal">
+    <div class="register-box">
+      <h2>
+        <span class="lang-es">Registro</span>
+        <span class="lang-en">Sign Up</span>
+      </h2>
+      <form id="registerForm">
+        <label>
+          <span class="lang-es">Nombre Completo</span>
+          <span class="lang-en">Full Name</span>
+        </label>
+        <input type="text" id="regName" required>
+        <label>
+          <span class="lang-es">Teléfono (WhatsApp)</span>
+          <span class="lang-en">Phone (WhatsApp)</span>
+        </label>
+        <input type="tel" id="regPhone" required pattern="[0-9]{9,}">
+        <label>Email</label>
+        <input type="email" id="regEmail" required>
+        <button type="submit">
+          <span class="lang-es">Registrarme</span>
+          <span class="lang-en">Register</span>
+        </button>
+      </form>
+    </div>
   </div>
-</div>
 
-
-  <!-- Hero Section -->
   <section class="hero" id="hero">
     <div class="hero-content">
       <div class="hero-text">
@@ -1252,7 +1229,6 @@
           </a>
         </div>
       </div>
-
       <div class="hero-carousel">
         <div class="carousel-container">
           <div class="carousel-track" id="carouselTrack"></div>
@@ -1264,7 +1240,6 @@
     </div>
   </section>
 
-  <!-- Theme Section -->
   <section id="theme">
     <h2 class="section-title">
       <span class="lang-es inline-content">Elige Tu Preparación</span>
@@ -1311,7 +1286,6 @@
     </div>
   </section>
 
-  <!-- Modal for Preparation Images -->
   <div id="prepModal" class="prep-modal">
     <span class="prep-modal-close" id="prepModalClose">&times;</span>
     <div class="prep-modal-wrapper">
@@ -1320,7 +1294,6 @@
     </div>
   </div>
 
-  <!-- Modal for Carousel Images -->
   <div id="carouselModal" class="carousel-modal">
     <span class="carousel-modal-close" id="carouselModalClose">&times;</span>
     <img class="carousel-modal-content" id="carouselModalImage">
@@ -1394,7 +1367,7 @@
     </div>
   </section>
 
-  <!-- Products Section -->
+   <!-- Products Section -->
   <section id="products">
     <h2 class="section-title">
       <span class="lang-es inline-content">Los Más Solicitados</span>
@@ -1501,7 +1474,7 @@
     </div>
   </section>
 
-<!-- WhatsApp JoinChat Button -->
+  <!-- WhatsApp JoinChat Button -->
   <div class="joinchat joinchat--right" 
        data-settings='{
          "telephone":"51953489892",
@@ -1620,9 +1593,49 @@
       </p>
     </div>
   </footer>
- <script src="script.js"></script>
+<script src="script.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/joinchat@4.5.17/build/joinchat.min.js"></script>
   <script>
+    // ** CORRECCIÓN 1: Centrar y mostrar la alerta de reserva **
+    const reservationMessage = document.getElementById('reservation-message');
+    if (reservationMessage) {
+      // Muestra el mensaje de reserva centrado después de un breve delay
+      setTimeout(() => {
+        reservationMessage.classList.add('show');
+      }, 500); // Aparece después de 0.5 segundos
+
+      // Oculta el mensaje automáticamente después de 5 segundos
+      setTimeout(() => {
+        reservationMessage.classList.remove('show');
+      }, 5500); // Permanece visible por 5 segundos
+    }
+
+    // ** CORRECCIÓN 2: Lógica para mostrar/ocultar el Modal de Registro **
+    const registerModal = document.getElementById('registerModal');
+    
+    // Función para abrir el modal
+    function openRegisterModal() {
+      if (registerModal) {
+        // Usamos la nueva clase 'show' para mostrarlo
+        registerModal.classList.add('show');
+      }
+    }
+    
+    // Función para cerrar el modal haciendo clic fuera o con la tecla ESC
+    function closeRegisterModal(event) {
+      // Cierra si se hace clic en el fondo del modal (el propio registerModal)
+      // o si se presiona la tecla Escape
+      if (registerModal && (event.target === registerModal || event.key === 'Escape')) {
+        registerModal.classList.remove('show');
+      }
+    }
+
+    if (registerModal) {
+      // Listener para cerrar al hacer clic en el fondo oscuro
+      registerModal.addEventListener('click', closeRegisterModal);
+      // Listener para cerrar al presionar ESC
+      document.addEventListener('keydown', closeRegisterModal);
+    }
     document.addEventListener('DOMContentLoaded', function() {
       const joinchat = document.querySelector('.joinchat');
       
@@ -1662,7 +1675,6 @@
 let currentLanguage = localStorage.getItem('language') || 'es';
 const langEsBtn = document.getElementById('langEs');
 const langEnBtn = document.getElementById('langEn');
-const reservationMessage = document.getElementById('reservation-message');
 
 function setLanguage(lang) {
     currentLanguage = lang;
@@ -1944,7 +1956,6 @@ const cartItemsContainer = document.getElementById("cartItems");
 const cartBadge = document.getElementById("cartBadge");
 const cartTotalElement = document.getElementById("cartTotal");
 const cartCheckout = document.getElementById("cartCheckout");
-const registerModal = document.getElementById("registerModal");
 const registerForm = document.getElementById("registerForm");
 
 // Crear estilos modernos
@@ -2796,7 +2807,7 @@ function showNotification(message, type = "info") {
 // Inicializar
 renderCart();
 window.removeFromCart = removeFromCart;
-</script>
-</body>
+  </script>
 
+</body>
 </html>
