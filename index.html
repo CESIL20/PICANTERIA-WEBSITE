@@ -2745,23 +2745,25 @@ document.querySelectorAll(".product-card").forEach(productCard => {
   const minusBtn = productCard.querySelector(".quantity-btn:first-of-type");
   const addBtn = productCard.querySelector(".btn-primary");
 
- if (plusBtn) {
-    plusBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation(); 
-      input.value = parseInt(input.value) + 1; // <-- Incremento +1, CORRECTO
-    });
-  }
-// ... (código del minusBtn)
-  if (addBtn) {
-    addBtn.addEventListener("click", (e) => {
-      // ...
-      const qty = parseInt(input.value) || 1; // <-- Obtiene la cantidad del input, COMPLETO
-      addToCart(name, price, qty); // <-- Llama a la función, COMPLETO
-    });
-  }
+  if (plusBtn) {
+    plusBtn.addEventListener("click", (e) => {
+      e.preventDefault(); // Previene el comportamiento por defecto
+      e.stopPropagation(); // Detiene la doble ejecución (soluciona 1, 3, 5)
+      input.value = parseInt(input.value) + 1;
+    });
+  }
+
+  if (minusBtn) {
+    minusBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (parseInt(input.value) > 1) {
+        input.value = parseInt(input.value) - 1;
+      }
+    });
+  }
 
   if (addBtn) {
+    // ⚠️ Esta es la ÚNICA vez que se debe definir addBtn.
     addBtn.addEventListener("click", (e) => {
       e.preventDefault();
       const name = productCard.querySelector(".product-name").innerText;
@@ -2811,5 +2813,6 @@ window.removeFromCart = removeFromCart;
 
 </body>
 </html>
+
 
 
