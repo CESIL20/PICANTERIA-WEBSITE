@@ -2748,6 +2748,7 @@ document.querySelectorAll(".product-card").forEach(productCard => {
  if (plusBtn) {
     plusBtn.addEventListener("click", (e) => {
       e.preventDefault();
+      e.stopPropagation(); 
       input.value = parseInt(input.value) + 1; // <-- Incremento +1, CORRECTO
     });
   }
@@ -2810,4 +2811,5 @@ window.removeFromCart = removeFromCart;
 
 </body>
 </html>
+
 
