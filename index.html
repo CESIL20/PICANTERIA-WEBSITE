@@ -2745,21 +2745,20 @@ document.querySelectorAll(".product-card").forEach(productCard => {
   const minusBtn = productCard.querySelector(".quantity-btn:first-of-type");
   const addBtn = productCard.querySelector(".btn-primary");
 
-  if (plusBtn) {
-    plusBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      input.value = parseInt(input.value) + 1;
-    });
-  }
-
-  if (minusBtn) {
-    minusBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (parseInt(input.value) > 1) {
-        input.value = parseInt(input.value) - 1;
-      }
-    });
-  }
+ if (plusBtn) {
+    plusBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      input.value = parseInt(input.value) + 1; // <-- Incremento +1, CORRECTO
+    });
+  }
+// ... (código del minusBtn)
+  if (addBtn) {
+    addBtn.addEventListener("click", (e) => {
+      // ...
+      const qty = parseInt(input.value) || 1; // <-- Obtiene la cantidad del input, COMPLETO
+      addToCart(name, price, qty); // <-- Llama a la función, COMPLETO
+    });
+  }
 
   if (addBtn) {
     addBtn.addEventListener("click", (e) => {
@@ -2811,3 +2810,4 @@ window.removeFromCart = removeFromCart;
 
 </body>
 </html>
+
